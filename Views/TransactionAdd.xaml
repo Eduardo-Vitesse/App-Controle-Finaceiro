@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppControleFinanceiro.Views.TransactionAdd"
+             Title="TransactionAdd">
+    <VerticalStackLayout Spacing="10">
+        <Border BackgroundColor="Black"
+                Margin="15"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 30"
+                Padding="15">
+            <Grid RowDefinitions="Auto" ColumnDefinitions="*, 30">
+                <Label 
+                    Text="Novo"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+                <Image 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Source="close.png"
+                    WidthRequest="17">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Add" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+
+        <Label x:Name="LabelError" IsVisible="False" Text="" TextColor="Red" Margin="30,0" />
+
+        <FlexLayout Direction="Row" 
+                    AlignContent="Center" 
+                    JustifyContent="SpaceBetween"
+                    Margin="30,0">
+            <RadioButton x:Name="RadioIncome" IsChecked="True" Content="Receita" />
+            <RadioButton x:Name="RadioExpense" IsChecked="False" Content="Despesa" />
+        </FlexLayout>
+
+        <Entry x:Name="EntryName" Placeholder="Nome" Margin="30, 0" />
+
+        <DatePicker x:Name="EntryDate" Margin="30,0"/>
+
+        <Entry x:Name="EntryValue" Placeholder="Valor" Margin="30, 0" />
+
+        <Button Text="Salvar" 
+                Margin="30, 15"
+                HorizontalOptions="Center"
+                x:Name="BtnSave"
+                Clicked="BtnSave_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
